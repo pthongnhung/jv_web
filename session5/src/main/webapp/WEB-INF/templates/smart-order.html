@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}">
+<head>
+    <title>Đặt món nhanh</title>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <h2>Đặt món nhanh</h2>
+
+    <div th:if="${errorMessage}" style="color:red"
+         th:text="${errorMessage}"></div>
+
+    <p th:text="'Có ' + ${#lists.size(dishes)} + ' món ăn trong menu'"></p>
+
+    <form method="post" th:action="@{/lesson2/order}">
+        <ul>
+            <li th:each="dish : ${dishes}">
+                <input type="checkbox"
+                       th:value="${dish.id}"
+                       name="dishIds"/>
+
+                <span th:text="${dish.name}"></span> -
+                <span th:text="${dish.price}"></span>
+            </li>
+        </ul>
+
+        <button type="submit">Đặt món</button>
+    </form>
+
+</section>
+</body>
+</html>

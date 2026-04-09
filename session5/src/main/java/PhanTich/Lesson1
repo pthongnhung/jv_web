@@ -1,0 +1,9 @@
+# Báo cáo "Phá án" lỗi ViewResolver
+
+## Lỗi phát hiện
+1. Suffix cấu hình sai: `.jsp` → phải là `.html` cho Thymeleaf.
+2. Thư mục cấu hình sai: `/WEB-INF/views` → chuẩn Thymeleaf là `/WEB-INF/templates/`.
+
+- SpringResourceTemplateResolver: chỉ cho Thymeleaf biết thư mục chứa file .html.
+- SpringTemplateEngine: “bộ máy” render template, có thể thêm nhiều dialect (ví dụ LayoutDialect để hỗ trợ layout).
+- ThymeleafViewResolver: kết nối Spring MVC với Thymeleaf, để khi controller trả về "home", Spring sẽ tìm /WEB-INF/templates/home.html.
