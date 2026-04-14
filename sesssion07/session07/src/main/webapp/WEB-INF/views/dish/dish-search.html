@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tìm kiếm món ăn</title>
+</head>
+<body>
+<h2>Tìm kiếm món ăn</h2>
+<form th:action="@{/merchant/dish/search}" method="get">
+    <label>Nhóm món:</label>
+    <select name="category">
+        <option th:each="c : ${categories}" th:value="${c}" th:text="${c}"></option>
+    </select>
+
+    <label>Tên món:</label>
+    <input type="text" name="name" />
+
+    <button type="submit">Tìm kiếm</button>
+</form>
+</body>
+</html>

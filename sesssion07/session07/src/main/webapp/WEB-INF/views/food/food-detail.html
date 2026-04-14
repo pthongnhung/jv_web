@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết món ăn</title>
+</head>
+<body>
+<h2>Thông tin món ăn</h2>
+<p>Tên món: <span th:text="${food.name}"></span></p>
+<p>Danh mục: <span th:text="${food.category}"></span></p>
+<p>Giá tiền: <span th:text="${food.price}"></span></p>
+<p>Đường dẫn ảnh: <span th:text="${food.imagePath}"></span></p>
+<img th:src="@{'/images/' + ${food.imagePath}}" alt="Ảnh món ăn"/>
+</body>
+</html>

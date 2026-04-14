@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thêm món ăn</title>
+</head>
+<body>
+<h2>Thêm món ăn mới</h2>
+<form th:action="@{/merchant/dish/add}" th:object="${dish}" method="post">
+    <label>Tên món:</label>
+    <input type="text" th:field="*{name}" />
+
+    <label>Nhóm món:</label>
+    <select th:field="*{category}">
+        <option th:each="c : ${categories}" th:value="${c}" th:text="${c}"></option>
+    </select>
+
+    <button type="submit">Lưu</button>
+</form>
+</body>
+</html>
