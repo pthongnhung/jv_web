@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/hr/add-employee}" th:object="${employee}" method="post">
+    <div>
+        <label th:for="age">Tuổi:</label>
+        <input type="number" th:field="*{age}" />
+        <span th:if="${#fields.hasErrors('age')}"
+              th:errors="*{age}"
+              style="color:red"></span>
+    </div>
+
+    <div>
+        <label th:for="email">Email:</label>
+        <input type="text" th:field="*{email}" />
+        <span th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}"
+              style="color:red"></span>
+    </div>
+
+    <button type="submit">Thêm nhân viên</button>
+</form>
+>
+</body>
+</html>
